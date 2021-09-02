@@ -22,9 +22,7 @@ int main()
     GetComputerNameA(buffer, &size);
     printf("%s\n", buffer);
 
-    char buffer1[256];
-    DWORD size1 = 256;
-    GetUserNameA(buffer1, &size1);
-    printf("%s\n", buffer1);
 
+    GetUserNameA(buffer, &size);
+    printf("%s\n", buffer);
 }
