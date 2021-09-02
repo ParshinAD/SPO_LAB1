@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <tchar.h>
 
-using namespace std;
-
 #define BUFSIZE MAX_PATH
 #define FILESYSNAMEBUFSIZE MAX_PATH
 #define MAX_KEY_LENGTH 255
