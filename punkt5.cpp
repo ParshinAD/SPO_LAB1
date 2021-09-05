@@ -28,7 +28,7 @@ int main() {
     DWORD cbData = BufferSize;
 
     if (RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-        0, KEY_ALL_ACCESS, &hKey) == !ERROR_SUCCESS)
+        0, KEY_ALL_ACCESS, &hKey) != ERROR_SUCCESS)
     {
         printf("Function RegOpenKeyEx() failed!\n");
     }
