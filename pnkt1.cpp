@@ -1,28 +1,25 @@
-﻿#include <windows.h>
-#include <stdio.h>
 #pragma warning(disable : 4996)
 
-int main()
-{
-    DWORD dwVersion = 0;
-    DWORD dwMajorVersion = 0;
-    DWORD dwMinorVersion = 0;
-    DWORD dwBuild = 0;
+#define WINVER 0x0A00
+#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+#include <tchar.h>
 
-    dwVersion = GetVersion();
+using namespace std;
 
-    // Get the Windows version.
+#define BUFSIZE MAX_PATH
+#define FILESYSNAMEBUFSIZE MAX_PATH
+#define MAX_KEY_LENGTH 255
 
-    dwMajorVersion = (DWORD)(LOBYTE(LOWORD(dwVersion)));
-    dwMinorVersion = (DWORD)(HIBYTE(LOWORD(dwVersion)));
 
-    // Get the build number.
+#define INFO_BUFFER_SIZE 32767
 
-    if (dwVersion < 0x80000000)
-        dwBuild = (DWORD)(HIWORD(dwVersion));
 
-    printf("Version is %d.%d (%d)\n",
-        dwMajorVersion,
-        dwMinorVersion,
-        dwBuild);
+
+int main() {
+    OSVERSIONINFO osvi;
+    osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+    GetVersionEx(&osvi);
+    printf("Version OS: %i.%i\n", osvi.dwMajorVersion, osvi.dwMinorVersion);
 }
