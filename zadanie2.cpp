@@ -1,4 +1,4 @@
-﻿#pragma warning(disable : 4996)
+#pragma warning(disable : 4996)
 
 #define WINVER 0x0A00
 #include <iostream>
@@ -26,12 +26,11 @@ int main() {
     LARGE_INTEGER li;
     if (!QueryPerformanceFrequency(&li))
         cout << "Function QueryPerformanceFrequency() failed!\n";
-
+    CounterStart = li.QuadPart;
     PCFreq = double(li.QuadPart);
 
     printf("\n2.1.  CPU frequency: %u  Hz\n", li);
     QueryPerformanceCounter(&li);
-    CounterStart = li.QuadPart;
 
     LARGE_INTEGER rhd;
     QueryPerformanceCounter(&rhd);
@@ -39,8 +38,3 @@ int main() {
 
 
 }
-
-
-
-
-
