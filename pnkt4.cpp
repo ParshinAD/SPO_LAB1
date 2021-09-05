@@ -7,12 +7,8 @@
 #include <tchar.h>
 
 #define BUFSIZE MAX_PATH
-#define FILESYSNAMEBUFSIZE MAX_PATH
-#define MAX_KEY_LENGTH 255
 
 using namespace std;
-
-#define INFO_BUFFER_SIZE 32767
 
 int main() {
     char buffer[MAX_PATH + 1];
