@@ -31,8 +31,8 @@ int main() {
         char* path = buffer;
         printf("\npath: %s", path);
         GetDiskFreeSpaceExA(buffer, (PULARGE_INTEGER)&available, (PULARGE_INTEGER)&total, (PULARGE_INTEGER)&free);
-            printf("\nsize: %u  bytes ", total);
-            printf("\nFree space: %u  bytes\n", available);
+            printf("\nsize: %L  bytes ", total);
+            printf("\nFree space: %L  bytes\n", available);
 
     } while (FindNextVolumeA(search, buff1, BUFSIZE));
     FindVolumeClose(search);
