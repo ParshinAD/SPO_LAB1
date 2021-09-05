@@ -1,4 +1,4 @@
-﻿#pragma warning(disable : 4996)
+#pragma warning(disable : 4996)
 
 #define WINVER 0x0A00
 #include <iostream>
@@ -24,16 +24,12 @@ int main() {
     DWORD dwIndex = 0;
     DWORD retCode;
     DWORD BufferSize = 8192;
-    PPERF_DATA_BLOCK PerfData = (PPERF_DATA_BLOCK)malloc(BufferSize);
+    TCHAR PerfData[MAX_KEY_LENGTH];
     DWORD cbData = BufferSize;
 
-    if (RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-        0, KEY_ALL_ACCESS, &hKey) != ERROR_SUCCESS)
-    {
-        printf("Function RegOpenKeyEx() failed!\n");
-    }
-    else printf("\n1.5.  Startup commands:\n");
-
+    (RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+        0, KEY_ALL_ACCESS, &hKey);
+    printf("\n1.5.  Startup commands:\n");
     while (1) {
         dwSize = sizeof(szName);
         retCode = RegEnumValue(hKey, dwIndex, szName, &dwSize, NULL, NULL, NULL, NULL);
@@ -48,8 +44,3 @@ int main() {
 
     RegCloseKey(hKey);
 }
-
-
-
-
-
