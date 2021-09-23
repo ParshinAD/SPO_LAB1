@@ -24,17 +24,16 @@ __int64 CounterStart = 0;
 int main() {
 
     LARGE_INTEGER li;
-    if (!QueryPerformanceFrequency(&li))
-        cout << "Function QueryPerformanceFrequency() failed!\n";
+    LARGE_INTEGER t;
+    
+    QueryPerformanceCounter(&li);
     CounterStart = li.QuadPart;
-    PCFreq = double(li.QuadPart);
+    if (!QueryPerformanceFrequency(&t))
+        cout << "Function QueryPerformanceFrequency() failed!\n";
+   PCFreq = double(li.QuadPart);
+    
 
     printf("\n2.1.  CPU frequency: %u  Hz\n", li);
-    QueryPerformanceCounter(&li);
-
-    LARGE_INTEGER rhd;
-    QueryPerformanceCounter(&rhd);
-    cout << "2.2.  CPU clock count: " << double((rhd.QuadPart - CounterStart) * 1000000) / PCFreq << "  us \n";
-
-
+    
+    cout << "2.2.  CPU clock count: " << double((t.QuadPart - CounterStart) * 1000000) / PCFreq << "  us \n";
 }
