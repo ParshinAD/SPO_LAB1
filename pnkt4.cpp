@@ -1,4 +1,4 @@
-﻿#pragma warning(disable : 4996)
+#pragma warning(disable : 4996)
 
 #define WINVER 0x0A00
 #include <iostream>
@@ -27,8 +27,8 @@ int main() {
         char* path = buffer;
         printf("\npath: %s", path);
         GetDiskFreeSpaceExA(buffer, (PULARGE_INTEGER)&available, (PULARGE_INTEGER)&total, (PULARGE_INTEGER)&free);
-            printf("\nsize: %L  bytes ", total);
-            printf("\nFree space: %L  bytes\n", available);
+        printf("\nsize: %ll  bytes ", total);
+        printf("\nFree space: %ll  bytes\n", available);
 
     } while (FindNextVolumeA(search, buff1, BUFSIZE));
     FindVolumeClose(search);
