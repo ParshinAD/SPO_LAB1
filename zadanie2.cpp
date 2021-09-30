@@ -30,8 +30,7 @@ int main() {
     CounterStart = li.QuadPart;
     QueryPerformanceFrequency(&t);
     QueryPerformanceCounter(&t);
+    cout << "2.2.  CPU clock count: " << double((t.QuadPart - CounterStart) * 1000000) / PCFreq << "  us \n";
     PCFreq = double(li.QuadPart);
     printf("\n2.1.  CPU frequency: %ll  Hz\n", li);
-
-    cout << "2.2.  CPU clock count: " << double((t.QuadPart - CounterStart) * 1000000) / PCFreq << "  us \n";
 }
